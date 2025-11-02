@@ -155,6 +155,8 @@ play__button.addEventListener("click", async () => {
   isMusic = true;
   const value__input = document.querySelector(".musical")?.value || "";
   const notes = value__input.toLowerCase().split("");
+  music__input.setAttribute('disabled', true);
+  play__button.setAttribute('disabled', true);
   await notes.reduce(async (chain, note) => {
     await chain;
 
@@ -168,4 +170,6 @@ play__button.addEventListener("click", async () => {
     return;
   }, Promise.resolve());
   isMusic = false;
+  music__input.removeAttribute('disabled');
+  play__button.removeAttribute('disabled');
 });
